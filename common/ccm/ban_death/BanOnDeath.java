@@ -6,6 +6,7 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
+import ccm.ban_death.configuration.BanConfig;
 import ccm.ban_death.utils.PlayerTracker;
 import ccm.ban_death.utils.lib.Archive;
 import ccm.nucleum.omnium.CCMMod;
