@@ -2,10 +2,8 @@
 buildscript {
     repositories {
         mavenCentral()
-            maven {
-                url 'https://oss.sonatype.org/content/repositories/snapshots'
-            }
-     }
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    }
     dependencies { classpath 'com.github.abrarsyed.gmcp:GMCP:0.7.4-SNAPSHOT' }
 }
 
@@ -17,42 +15,34 @@ archivesBaseName = 'BanOnDeath'
 
 sourceSets {
     main {
-        java {
-            srcDir 'common'
-        }
-        resources {
-            srcDir 'resources'
+        java { srcDir 'common' }
+        resources { srcDir 'resources' }
+    }
+}
+
+minecraft {  minecraftVersion = '1.6.2' }
+
+processResources{
+
+    // Iterate through files to expand version on things not PNGs, or OBJs
+    eachFile { file ->
+        if (!(file.getPath().endsWith('png'))){
+            expand version: version, mcversion: minecraft.minecraftVersion
         }
     }
 }
 
-minecraft { 
-	minecraftVersion = '1.6.2'
-}
-
-processResources{
-
-	// Iterate through files to expand version on things not PNGs, or OBJs
-	eachFile { file ->
-		if (!(file.getPath().endsWith('png'))){
-			expand version: version, mcversion: minecraft.minecraftVersion
-		}
-	}
-}
-
-jar { 
-	appendix = 'universal'
-	manifest { 	
-		attributes 'MCVersion' : project.minecraft.minecraftVersion
-		attributes 'Version' : project.version 
-	}
+jar {
+    appendix = 'universal'
+    manifest {
+        attributes 'MCVersion' : project.minecraft.minecraftVersion
+        attributes 'Version' : project.version
+    }
 }
 
 task sourceJar(type: Jar) {
-	from sourceSets.main.allSource
-	appendix = 'src'
+    from sourceSets.main.allSource
+    appendix = 'src'
 }
 
-artifacts {
-	archives sourceJar
-}
+artifacts { archives sourceJar }
