@@ -29,6 +29,6 @@ public class BanOnDeath extends CCMMod implements IMod
     @EventHandler
     public void init(final FMLInitializationEvent event)
     {
-        new PlayerTracker();
+        PlayerTracker.load();
     }
 }

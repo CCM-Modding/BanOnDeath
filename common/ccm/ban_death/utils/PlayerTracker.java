@@ -12,12 +12,11 @@ import ccm.nucleum.omnium.utils.helper.CommandHelper;
 
 public class PlayerTracker
 {
-
-    public PlayerTracker()
+    public static void load()
     {
-        MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(new PlayerTracker());
     }
-
+    
     @ForgeSubscribe
     public void handleDeath(final LivingDeathEvent evt)
     {
