@@ -16,7 +16,7 @@ public class PlayerTracker
     {
         MinecraftForge.EVENT_BUS.register(new PlayerTracker());
     }
-    
+
     @ForgeSubscribe
     public void handleDeath(final LivingDeathEvent evt)
     {

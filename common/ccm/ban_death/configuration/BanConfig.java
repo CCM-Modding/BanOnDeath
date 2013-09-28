@@ -1,7 +1,7 @@
 package ccm.ban_death.configuration;
 
 import ccm.ban_death.utils.lib.Properties;
-import ccm.nucleum.omnium.utils.handler.config.IConfig;
+import ccm.nucleum.omnium.utils.handler.configuration.IConfig;
 
 public class BanConfig extends IConfig
 {
